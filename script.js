@@ -28,3 +28,16 @@ function copyToClipboard() {
     }
 }
 
+function getFollowers() {
+    const strategies = [
+        "🔥 Strategy 1: Use 'Reels Remix' with trending videos in your niche to reach new audiences.",
+        "📈 Strategy 2: Post 3-5 Reels per week using high-quality lighting and 3-second hooks.",
+        "🤝 Strategy 3: Engage with followers of your competitors. Leave 10 thoughtful comments daily.",
+        "keywords Strategy 4: Optimize your Bio with searchable keywords like 'Growth Expert' or 'Content Creator'.",
+        "Story Strategy 5: Use 'Polls' and 'Questions' in your Stories to boost engagement algorithm."
+    ];
+    
+    const randomStrategy = strategies[Math.floor(Math.random() * strategies.length)];
+    document.getElementById('output').innerText = randomStrategy;
+    document.getElementById('output').style.color = "#FFD700"; // لون ذهبي للنصيحة
+}
