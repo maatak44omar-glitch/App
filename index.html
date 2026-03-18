@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Tips | تطوير الحسابات</title>
+    <title>Golden Tips | Social Media Expert</title>
     <style>
         :root {
             --gold: #FFD700;
-            --bg: #050505;
-            --card: #121212;
+            --bg: #0a0a0a;
+            --card: #151515;
             --whatsapp: #25D366;
             --insta: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
         }
@@ -16,40 +16,33 @@
         body {
             background-color: var(--bg);
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
             margin: 0;
-        }
-
-        .header { text-align: center; margin-bottom: 30px; margin-top: 20px; }
-        h1 { color: var(--gold); margin-bottom: 10px; font-size: 35px; text-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
-        .tag { color: #888; font-size: 16px; letter-spacing: 1px; }
-
-        .choice-container {
             display: flex;
-            flex-direction: column;
-            gap: 25px;
-            width: 100%;
-            max-width: 420px;
+            justify-content: center;
+            min-height: 100vh;
         }
 
-        .option-card {
+        .container { width: 90%; max-width: 450px; padding: 20px; }
+
+        /* تسيير الصفحات */
+        .page { display: none; animation: fadeIn 0.5s ease; }
+        .active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        h1 { color: var(--gold); text-align: center; font-size: 32px; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #888; margin-bottom: 30px; font-size: 14px; }
+
+        .card {
             background: var(--card);
             border: 1px solid #222;
-            padding: 30px;
             border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 20px;
             text-align: center;
-            transition: 0.4s ease;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-
-        .option-card:hover { border-color: var(--gold); transform: translateY(-8px); }
-
-        h2 { margin-top: 0; font-size: 24px; color: #fff; margin-bottom: 15px; }
-        p { color: #bbb; font-size: 15px; line-height: 1.7; margin-bottom: 20px; }
 
         .btn {
             display: flex;
@@ -57,7 +50,7 @@
             justify-content: center;
             gap: 10px;
             width: 100%;
-            padding: 14px;
+            padding: 16px;
             margin-top: 15px;
             border-radius: 15px;
             text-decoration: none;
@@ -66,86 +59,126 @@
             border: none;
             cursor: pointer;
             transition: 0.3s;
-            box-sizing: border-box;
         }
 
-        .btn-free { background: var(--gold); color: #000; }
-        .btn-free:hover { background: #e6c200; }
-        
-        #tip-output {
-            margin-top: 20px;
+        .btn-gold { background: var(--gold); color: #000; }
+        .btn-white { background: #fff; color: #000; }
+        .btn-back { background: transparent; color: #888; border: 1px solid #333; margin-top: 20px; }
+        .btn-wa { background: var(--whatsapp); color: #fff; }
+        .btn-ig { background: var(--insta); color: #fff; }
+
+        /* صفحة النصائح */
+        .tips-list { text-align: right; height: 350px; overflow-y: auto; padding: 10px; background: #000; border-radius: 15px; }
+        .tip-item { border-bottom: 1px solid #222; padding: 10px 0; font-size: 14px; color: #ddd; }
+        .tip-num { color: var(--gold); font-weight: bold; margin-left: 5px; }
+
+        /* صفحة المبيعات */
+        .price-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1a1a1a;
             padding: 15px;
-            background: rgba(255, 215, 0, 0.05);
-            border: 1px dashed var(--gold);
             border-radius: 12px;
-            font-size: 14px;
-            color: #fff;
-            display: none;
-            text-align: right;
-            line-height: 1.6;
+            margin-bottom: 10px;
+            border: 1px solid #333;
         }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 10px;
-        }
-
-        .link-ig { background: var(--insta); color: #fff; }
-        .link-wa { background: var(--whatsapp); color: #fff; }
-        .btn-more { background: #222; color: #fff; border: 1px solid #333; margin-top: 15px; }
-
+        .price-val { color: var(--gold); font-weight: bold; font-size: 18px; }
     </style>
 </head>
 <body>
 
-    <div class="header">
+<div class="container">
+
+    <div id="page1" class="page active">
         <h1>✨ Golden Tips</h1>
-        <p class="tag">طوّر حسابك على إنستغرام باحترافية</p>
-    </div>
-
-    <div class="choice-container">
+        <p class="subtitle">مرحباً بك في منصة تطوير حسابات إنستغرام</p>
         
-        <div class="option-card">
-            <h2>🎁 متابعين بالمجان</h2>
-            <p>تعلم كيفاش تطور المحتوى ديالك وتجيب متابعين حقيقيين بوحدك عبر نصائح ذهبية يومية.</p>
-            <button class="btn btn-free" onclick="showFreeTips()">احصل على نصيحة الآن 📈</button>
-            
-            <div id="tip-output"></div>
-
-            <a href="https://www.instagram.com/omvvvar____x7?igsh=MThsczB4bHVrYzVzZw==" class="btn btn-more" target="_blank">
-                للمزيد من المعلومات (Instagram) 📸
-            </a>
+        <div class="card">
+            <h3>🎁 قسم المبتدئين</h3>
+            <p>احصل على 99 نصيحة ذهبية لتطوير محتواك بالمجان.</p>
+            <button class="btn btn-gold" onclick="showPage('page2')">دخول للمحتوى المجاني 📈</button>
         </div>
 
-        <div class="option-card">
-            <h2>💰 متابعين بالمال</h2>
-            <p>لزيادة المتابعين الحقيقيين وتكبير حسابك بسرعة، تواصل معي مباشرة عبر الروابط التالية:</p>
+        <div class="card">
+            <h3>💰 قسم المحترفين</h3>
+            <p>خدمة زيادة المتابعين الحقيقيين بأسعار تنافسية.</p>
+            <button class="btn btn-white" onclick="showPage('page3')">طلب متابعين بالمال 🚀</button>
+        </div>
+    </div>
+
+    <div id="page2" class="page">
+        <h1>📈 99 Golden Tips</h1>
+        <p class="subtitle">نصائح احترافية لتطوير حسابك</p>
+        
+        <div class="tips-list" id="tipsContainer">
+            </div>
+
+        <a href="https://www.instagram.com/omvvvar____x7?igsh=MThsczB4bHVrYzVzZw==" class="btn btn-ig" target="_blank">تابعني للمزيد من النصائح 📸</a>
+        <button class="btn btn-back" onclick="showPage('page1')">العودة للرئيسية ⬅️</button>
+    </div>
+
+    <div id="page3" class="page">
+        <h1>💰 قائمة الأسعار</h1>
+        <p class="subtitle">متابعين حقيقيين لرفع تفاعل حسابك</p>
+
+        <div class="card">
+            <div class="price-box">
+                <span>1000 متابع</span>
+                <span class="price-val">1.5$</span>
+            </div>
+            <div class="price-box">
+                <span>2000 متابع</span>
+                <span class="price-val">3$</span>
+            </div>
+            <div class="price-box">
+                <span>4000 متابع</span>
+                <span class="price-val">5$</span>
+            </div>
             
-            <div class="social-grid">
-                <a href="https://www.instagram.com/omvvvar____x7?igsh=MThsczB4bHVrYzVzZw==" class="btn link-ig" target="_blank">Instagram 📸</a>
-                <a href="https://wa.me/212649595538?text=أريد%20شراء%20متابعين%20حقيقيين" class="btn link-wa" target="_blank">WhatsApp 💬</a>
+            <p style="margin-top:20px; font-size:12px;">لطلب كميات أكبر أو معلومات إضافية تواصل معي:</p>
+            
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                <a href="https://wa.me/212649595538?text=أريد%20شراء%20متابعين" class="btn btn-wa" target="_blank">WhatsApp 💬</a>
+                <a href="https://www.instagram.com/omvvvar____x7?igsh=MThsczB4bHVrYzVzZw==" class="btn btn-ig" target="_blank">Instagram 📸</a>
             </div>
         </div>
 
+        <button class="btn btn-back" onclick="showPage('page1')">العودة للرئيسية ⬅️</button>
     </div>
 
-    <script>
-        function showFreeTips() {
-            const tips = [
-                "✨ نصيحة ذهبية: استعمل 'The 3-Second Hook' في فيديوهاتك لجذب الانتباه في أول 3 ثوانٍ.",
-                "✨ نصيحة ذهبية: انشر Reels في أوقات الذروة (بين 6 و 9 مساءً بتوقيت المغرب).",
-                "✨ نصيحة ذهبية: الرد على أول 10 تعليقات بسرعة يخبر الخوارزمية أن الفيديو ناجح.",
-                "✨ نصيحة ذهبية: استعمل 'SEO Keywords' في وصف الفيديو (Caption) لسهولة العثور عليك.",
-                "✨ نصيحة ذهبية: الجودة أهم من العدد، فيديو واحد احترافي أحسن من 10 فيديوهات ضعيفة."
-            ];
-            const randomTip = tips[Math.floor(Math.random() * tips.length)];
-            const output = document.getElementById('tip-output');
-            output.style.display = 'block';
-            output.innerText = randomTip;
-        }
-    </script>
+</div>
+
+<script>
+    // تسيير التنقل بين الصفحات
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        window.scrollTo(0,0);
+    }
+
+    // توليد 99 نصيحة (أمثلة)
+    const container = document.getElementById('tipsContainer');
+    const baseTips = [
+        "اهتم بأول 3 ثواني في الـ Reel.",
+        "استعمل Trending Audio بصوت منخفض.",
+        "تفاعل مع الحسابات الكبيرة في مجالك.",
+        "انشر في أوقات الذروة (6-9 مساءً).",
+        "رد على كل التعليقات بسرعة.",
+        "استعمل كلمات مفتاحية في الـ Bio.",
+        "صور بجودة 4K وإضاءة جيدة.",
+        "اجعل الـ Caption قصيراً ومحفزاً.",
+        "استعمل الـ Stories يومياً لزيادة التفاعل."
+    ];
+
+    for (let i = 1; i <= 99; i++) {
+        const tipText = baseTips[i % baseTips.length];
+        const div = document.createElement('div');
+        div.className = 'tip-item';
+        div.innerHTML = `<span class="tip-num">${i}.</span> ${tipText}`;
+        container.appendChild(div);
+    }
+</script>
 
 </body>
 </html>
