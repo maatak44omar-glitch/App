@@ -1,59 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>IG Growth Pro</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-      color: white;
-      text-align: center;
-      padding: 40px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IG Growth Pro | Your Social Partner</title>
+    <style>
+        :root {
+            --primary: #ff004f;
+            --secondary: #7000ff;
+            --success: #25D366;
+            --dark: #0a0a0a;
+            --card: #151515;
+        }
 
-    .box {
-      background: rgba(0,0,0,0.6);
-      padding: 20px;
-      border-radius: 15px;
-      max-width: 400px;
-      margin: auto;
-    }
+        body {
+            background-color: var(--dark);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
 
-    input, button {
-      padding: 10px;
-      margin: 10px;
-      border-radius: 8px;
-      border: none;
-    }
+        .container {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(255, 0, 79, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid #333;
+        }
 
-    button {
-      background: #ff004f;
-      color: white;
-      cursor: pointer;
-    }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    button:hover {
-      background: #ff3366;
-    }
-  </style>
+        input {
+            width: 85%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            background: #222;
+            color: white;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        .btn-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            color: white;
+        }
+
+        .btn-main { background: var(--primary); }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 0, 79, 0.4); }
+
+        #output {
+            background: #222;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            min-height: 50px;
+            font-size: 14px;
+            line-height: 1.5;
+            border-left: 4px solid var(--primary);
+        }
+
+        .btn-copy { background: #444; width: 100%; }
+        .btn-copy:active { background: var(--secondary); }
+
+        .btn-whatsapp {
+            background: var(--success);
+            width: 100%;
+            margin-top: 20px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-whatsapp:hover { background: #1eb954; transform: scale(1.02); }
+    </style>
 </head>
 <body>
 
-  <div class="box">
-    <h1>🚀 IG Growth Pro</h1>
+    <div class="container">
+        <h1>🚀 IG Growth Pro</h1>
+        <input type="text" id="username" placeholder="@your_username">
+        
+        <div class="btn-group">
+            <button class="btn-main" onclick="getTip()">📈 Strategy</button>
+            <button class="btn-main" onclick="getIdeas()">💡 Ideas</button>
+            <button class="btn-main" onclick="getHashtags()">🏷️ Hashtags</button>
+            <button class="btn-main" onclick="getTip()">🔥 Viral</button>
+        </div>
 
-    <input type="text" id="username" placeholder="Enter username">
+        <p id="output">Your growth tips will appear here...</p>
+        
+        <button class="btn-copy" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
 
-    <br>
+        <hr style="border: 0.5px solid #333; margin: 25px 0;">
 
-    <button onclick="getTip()">📈 Growth Tip</button>
-    <button onclick="getIdeas()">💡 Post Ideas</button>
-    <button onclick="getHashtags()">🏷️ Hashtags</button>
+        <button class="btn-whatsapp" onclick="window.location.href='https://wa.me/212600000000'">
+            Contact me for Business 💬
+        </button>
+    </div>
 
-    <p id="output"></p>
-    <button onclick="copyToClipboard()" style="background: #2ecc71; margin-top: 10px;">📋 Copy Text</button>
-  </div>
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
