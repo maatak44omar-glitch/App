@@ -1,43 +1,44 @@
- tips = ["Post 3 Reels a week! 🚀", "Reply to comments 💬", "Use trending audio 🎵"];
-const ideas = ["A day in my life 🤳", "Tutorial video 🎥", "Behind the scenes 🎬"];
-const hashtags = ["#viral #reels", "#growth #marketing", "#success"];
-
-// 2. الدالة الذكية (مسح القديمة وحط هادي)
-function showRandom(list) {
-    // كياخد السمية من الخانة، وإلا كانت خاوية كيدير Guest
-    const user = document.getElementById("username").value || "Guest";
-    
-    // كيختار نصيحة عشوائية
-    const random = list[Math.floor(Math.random() * list.length)];
-    
-    // كيبين النتيجة مخصصة بالسمية
-    document.getElementById("output").innerText = "Hey " + user + ", " + random;
-}
-
-// 3. ربط الدوال (هادشي اللي عندك ف السطور 41، 42، 43)
-function getTip() { showRandom(tips); }
-function getIdeas() { showRandom(ideas); }
-function getHashtags() { showRandom(hashtags); }
-function copyToClipboard() {
-    const text = document.getElementById("output").innerText;
-    if(text) {
-        navigator.clipboard.writeText(text);
-        alert("Copied to clipboard! ✅");
-    } else {
-        alert("Nothing to copy yet! ❌");
-    }
-}
-
-function getFollowers() {
-    const strategies = [
-        "🔥 Strategy 1: Use 'Reels Remix' with trending videos in your niche to reach new audiences.",
-        "📈 Strategy 2: Post 3-5 Reels per week using high-quality lighting and 3-second hooks.",
-        "🤝 Strategy 3: Engage with followers of your competitors. Leave 10 thoughtful comments daily.",
-        "keywords Strategy 4: Optimize your Bio with searchable keywords like 'Growth Expert' or 'Content Creator'.",
-        "Story Strategy 5: Use 'Polls' and 'Questions' in your Stories to boost engagement algorithm."
+function getTip() {
+    const tips = [
+        "✨ Use 'The 3-Second Hook': Start your Reel with a strong headline to stop people from scrolling.",
+        "✨ Post at 'Peak Hours': Check your insights and post exactly when your followers are most active.",
+        "✨ Reply to every comment in the first hour: This tells the algorithm your post is engaging.",
+        "✨ Use 'SEO Keywords' in your Bio and Captions, not just hashtags.",
+        "✨ Create 'Saveable Content': Educational carousels get more saves, which boosts reach.",
+        "✨ Use Trending Audio, but keep the volume low (8-10%) if you are speaking.",
+        "✨ Collab Posts: Partner with another creator to tap into their audience instantly.",
+        "✨ Consistency over Intensity: Posting 3 times a week for a year is better than 7 times in one week."
     ];
-    
-    const randomStrategy = strategies[Math.floor(Math.random() * strategies.length)];
-    document.getElementById('output').innerText = randomStrategy;
-    document.getElementById('output').style.color = "#FFD700"; // لون ذهبي للنصيحة
+    const randomTip = tips[Math.floor(Math.random() * tips.length)];
+    document.getElementById('output').innerText = randomTip;
+    document.getElementById('output').style.color = "#FFD700";
 }
+
+function getIdeas() {
+    const ideas = [
+        "💡 'A Day in My Life' Reel (Behind the scenes).",
+        "💡 '3 Tools I use' to grow my brand.",
+        "💡 'Mistakes to avoid' in your specific niche.",
+        "💡 'How to' tutorial related to your service.",
+        "💡 Answer a common question from your DMs in a video."
+    ];
+    const randomIdea = ideas[Math.floor(Math.random() * ideas.length)];
+    document.getElementById('output').innerText = randomIdea;
+}
+
+function getHashtags() {
+    const hashtags = [
+        "#InstagramGrowth #SocialMediaStrategy #ContentCreator #DigitalMarketing #ViralTips",
+        "#GrowthHacking #ReelsStrategy #SocialMediaMarketing #InfluencerTips #GoldenTips",
+        "#MarketingDigital #SmallBusinessGrowth #OnlineBusiness #InstagramMarketing"
+    ];
+    const randomHash = hashtags[Math.floor(Math.random() * hashtags.length)];
+    document.getElementById('output').innerText = randomHash;
+}
+
+function copyToClipboard() {
+    const text = document.getElementById('output').innerText;
+    navigator.clipboard.writeText(text);
+    alert("Copied to clipboard! ✅");
+}
+ 
