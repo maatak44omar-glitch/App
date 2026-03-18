@@ -3,128 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Tips | Growth Expert</title>
+    <title>Golden Tips | Growth Panel</title>
     <style>
         :root {
             --gold: #FFD700;
-            --dark-gold: #b8860b;
-            --instagram: #E1306C;
-            --whatsapp: #25D366;
             --bg: #050505;
+            --card: #121212;
+            --whatsapp: #25D366;
+            --insta: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
         }
 
         body {
             background-color: var(--bg);
             color: white;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
             padding: 20px;
+            margin: 0;
         }
 
-        .container {
-            background: #111;
-            padding: 30px;
-            border-radius: 25px;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-            max-width: 400px;
+        .header { text-align: center; margin-bottom: 30px; }
+        h1 { color: var(--gold); margin-bottom: 5px; font-size: 32px; }
+        .tag { color: #888; font-size: 14px; }
+
+        .choice-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             width: 100%;
-            text-align: center;
+            max-width: 400px;
+        }
+
+        .option-card {
+            background: var(--card);
             border: 1px solid #222;
-        }
-
-        h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        p.subtitle { color: #888; font-size: 14px; margin-bottom: 25px; }
-
-        input {
-            width: 90%;
-            padding: 12px;
-            border-radius: 12px;
-            border: 1px solid #333;
-            background: #1a1a1a;
-            color: white;
-            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 20px;
             text-align: center;
-        }
-
-        .grid-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        button {
-            padding: 12px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
             transition: 0.3s;
-            color: white;
         }
 
-        .btn-gold { background: var(--gold); color: black; }
-        .btn-gold:hover { background: var(--dark-gold); transform: translateY(-2px); }
+        .option-card:hover { border-color: var(--gold); transform: translateY(-5px); }
 
-        #output {
-            background: #1a1a1a;
-            padding: 15px;
+        .option-card h2 { margin-top: 0; font-size: 22px; color: #fff; }
+        .option-card p { color: #aaa; font-size: 14px; line-height: 1.6; }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
             border-radius: 12px;
-            margin: 20px 0;
-            font-size: 14px;
-            border-left: 4px solid var(--gold);
-            min-height: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
         }
 
-        .action-buttons { display: flex; flex-direction: column; gap: 10px; }
+        .btn-free { background: var(--gold); color: #000; }
+        .btn-paid { background: #fff; color: #000; }
+        
+        #tip-output {
+            margin-top: 15px;
+            padding: 10px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            font-size: 13px;
+            color: var(--gold);
+            display: none;
+        }
 
-        .btn-ig { background: var(--instagram); text-decoration: none; display: block; padding: 12px; border-radius: 10px; font-weight: bold; color: white; }
-        .btn-wa { background: var(--whatsapp); text-decoration: none; display: block; padding: 12px; border-radius: 10px; font-weight: bold; color: white; }
+        .social-box {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .link-ig { background: var(--insta); color: #fff; flex: 1; }
+        .link-wa { background: var(--whatsapp); color: #fff; flex: 1; }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="header">
         <h1>✨ Golden Tips</h1>
-        <p class="subtitle">Elevate Your Social Media Game</p>
-        
-        <input type="text" id="username" placeholder="Type Username Here">
-        
-        <div class="grid-buttons">
-            <button class="btn-gold" onclick="getTip()">🏆 Growth Tip</button>
-            <button class="btn-gold" onclick="getIdeas()">💡 Content Ideas</button>
-            <button class="btn-gold" onclick="getHashtags()">#️ Best Hashtags</button>
-            <button class="btn-gold" onclick="getTip()">🔥 Viral Secrets</button>
-          <button <button class="btn-gold" onclick="window.location.href='https://wa.me/2126XXXXXXXX?text=Hello%20Omar,%20I%20want%20to%20get%20real%20followers%20for%20my%20Instagram'">🚀 Get Real Followers</button>
+        <p class="tag">اختر المسار المناسب لك لتطوير حسابك</p>
+    </div>
 
+    <div class="choice-container">
+        <div class="option-card">
+            <h2>🎁 متابعين بالمجان</h2>
+            <p>تعلم كيفاش تطور المحتوى ديالك وتجيب متابعين حقيقيين بوحدك عبر نصائح ذهبية.</p>
+            <button class="btn btn-free" onclick="showFreeTips()">أريد نصائح التطوير 📈</button>
+            <div id="tip-output"></div>
+            <a href="https://www.instagram.com/omvvvar____x7?igsh=MThsczB4bHVrYzVzZw==" class="btn" style="background:#333; color:#fff;">للمزيد من المعلومات (Instagram) 📸</a>
         </div>
 
-        <div id="output">Result will appear here...</div>
-
-        <button style="background:#333; width:100%; margin-bottom: 20px;" onclick="copyToClipboard()">📋 Copy Text</button>
-
-        <div class="action-buttons">
-            <a href="https://www.instagram.com/omvvvar____x7?igsh=MThsczB4bHVrYzVzZw==" class="btn-ig" target="_blank">
-                Follow Me on Instagram 📸
-            </a>
-
-            <a href="https://wa.me/212649595538" class="btn-wa" target="_blank">
-                Contact for Business 💬
-            </a>
+        <div class="option-card">
+            <h2>💰 متابعين بالمال</h2>
+            <p>لزيادة المتابعين الحقيقيين وبسرعة، تواصل معي مباشرة عبر الروابط أسفله.</p>
+            <div class="social-box">
+                <a href="https://www.instagram.com/omvvvar____x7?igsh=MThsczB4bHVrYzVzZw==" class="btn link-ig" target="_blank">Instagram 📸</a>
+                <a href="https://wa.me/212649595538?text=أريد%20شراء%20متابعين%20حقيقيين" class="btn link-wa" target="_blank">WhatsApp 💬</a>
+            </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function showFreeTips() {
+            const tips = [
+                "✨ استعمل 'The 3-Second Hook' في فيديوهاتك لجذب الانتباه.",
+                "✨ انشر في أوقات الذروة التي يتفاعل فيها متابعوك.",
+                "✨ رد على كل التعليقات في الساعة الأولى لزيادة الانتشار.",
+                "✨ استعمل كلمات مفتاحية (SEO) في وصف الفيديو."
+            ];
+            const randomTip = tips[Math.floor(Math.random() * tips.length)];
+            const output = document.getElementById('tip-output');
+            output.style.display = 'block';
+            output.innerText = randomTip;
+        }
+    </script>
 </body>
 </html>
+ 
