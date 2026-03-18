@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IG Growth Pro | Your Social Partner</title>
+    <title>Golden Tips | Growth Expert</title>
     <style>
         :root {
-            --primary: #ff004f;
-            --secondary: #7000ff;
-            --success: #25D366;
-            --dark: #0a0a0a;
-            --card: #151515;
+            --gold: #FFD700;
+            --dark-gold: #b8860b;
+            --instagram: #E1306C;
+            --whatsapp: #25D366;
+            --bg: #050505;
         }
 
         body {
-            background-color: var(--dark);
+            background-color: var(--bg);
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,105 +26,101 @@
         }
 
         .container {
-            background: var(--card);
+            background: #111;
             padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(255, 0, 79, 0.1);
+            border-radius: 25px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
             max-width: 400px;
             width: 100%;
             text-align: center;
-            border: 1px solid #333;
+            border: 1px solid #222;
         }
 
         h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
+
+        p.subtitle { color: #888; font-size: 14px; margin-bottom: 25px; }
 
         input {
-            width: 85%;
+            width: 90%;
             padding: 12px;
-            border-radius: 10px;
+            border-radius: 12px;
             border: 1px solid #333;
-            background: #222;
+            background: #1a1a1a;
             color: white;
             margin-bottom: 20px;
-            outline: none;
+            text-align: center;
         }
 
-        .btn-group {
+        .grid-buttons {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
 
         button {
             padding: 12px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             transition: 0.3s;
             color: white;
         }
 
-        .btn-main { background: var(--primary); }
-        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 0, 79, 0.4); }
+        .btn-gold { background: var(--gold); color: black; }
+        .btn-gold:hover { background: var(--dark-gold); transform: translateY(-2px); }
 
         #output {
-            background: #222;
+            background: #1a1a1a;
             padding: 15px;
-            border-radius: 10px;
-            margin: 15px 0;
-            min-height: 50px;
+            border-radius: 12px;
+            margin: 20px 0;
             font-size: 14px;
-            line-height: 1.5;
-            border-left: 4px solid var(--primary);
+            border-left: 4px solid var(--gold);
+            min-height: 40px;
         }
 
-        .btn-copy { background: #444; width: 100%; }
-        .btn-copy:active { background: var(--secondary); }
+        .action-buttons { display: flex; flex-direction: column; gap: 10px; }
 
-        .btn-whatsapp {
-            background: var(--success);
-            width: 100%;
-            margin-top: 20px;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-whatsapp:hover { background: #1eb954; transform: scale(1.02); }
+        .btn-ig { background: var(--instagram); text-decoration: none; display: block; padding: 12px; border-radius: 10px; font-weight: bold; color: white; }
+        .btn-wa { background: var(--whatsapp); text-decoration: none; display: block; padding: 12px; border-radius: 10px; font-weight: bold; color: white; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>🚀 IG Growth Pro</h1>
-        <input type="text" id="username" placeholder="@your_username">
+        <h1>✨ Golden Tips</h1>
+        <p class="subtitle">Elevate Your Social Media Game</p>
         
-        <div class="btn-group">
-            <button class="btn-main" onclick="getTip()">📈 Strategy</button>
-            <button class="btn-main" onclick="getIdeas()">💡 Ideas</button>
-            <button class="btn-main" onclick="getHashtags()">🏷️ Hashtags</button>
-            <button class="btn-main" onclick="getTip()">🔥 Viral</button>
+        <input type="text" id="username" placeholder="Type Username Here">
+        
+        <div class="grid-buttons">
+            <button class="btn-gold" onclick="getTip()">🏆 Growth Tip</button>
+            <button class="btn-gold" onclick="getIdeas()">💡 Content Ideas</button>
+            <button class="btn-gold" onclick="getHashtags()">#️ Best Hashtags</button>
+            <button class="btn-gold" onclick="getTip()">🔥 Viral Secrets</button>
         </div>
 
-        <p id="output">Your growth tips will appear here...</p>
-        
-        <button class="btn-copy" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+        <div id="output">Result will appear here...</div>
 
-        <hr style="border: 0.5px solid #333; margin: 25px 0;">
+        <button style="background:#333; width:100%; margin-bottom: 20px;" onclick="copyToClipboard()">📋 Copy Text</button>
 
-        <button class="btn-whatsapp" onclick="window.location.href='https://wa.me/212649595538'">
-            Contact me for Business 💬
-        </button>
+        <div class="action-buttons">
+            <a href="https://www.instagram.com/omvvvar____x7?igsh=MThsczB4bHVrYzVzZw==" class="btn-ig" target="_blank">
+                Follow Me on Instagram 📸
+            </a>
+
+            <a href="https://wa.me/212600000000" class="btn-wa" target="_blank">
+                Contact for Business 💬
+            </a>
+        </div>
     </div>
 
     <script src="script.js"></script>
