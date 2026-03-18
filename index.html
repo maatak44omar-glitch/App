@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IG Growth Pro</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .box {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    button {
+      background: #ff004f;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff3366;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>🚀 IG Growth Pro</h1>
+
+    <input type="text" id="username" placeholder="Enter username">
+
+    <br>
+
+    <button onclick="getTip()">📈 Growth Tip</button>
+    <button onclick="getIdeas()">💡 Post Ideas</button>
+    <button onclick="getHashtags()">🏷️ Hashtags</button>
+
+    <p id="output"></p>
+    <button onclick="copyToClipboard()" style="background: #2ecc71; margin-top: 10px;">📋 Copy Text</button>
+  </div>
+        <script src="script.js"></script>
+</body>
+</html>
