@@ -7,8 +7,8 @@
     <style>
         :root {
             --gold: #FFD700;
-            --bg: #0a0a0a;
-            --card: #151515;
+            --bg: #050505;
+            --card: #111;
             --whatsapp: #25D366;
             --insta: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
         }
@@ -23,24 +23,25 @@
             min-height: 100vh;
         }
 
-        .container { width: 90%; max-width: 450px; padding: 20px; }
+        .container { width: 95%; max-width: 420px; padding: 20px; }
 
-        .page { display: none; animation: fadeIn 0.5s ease; }
+        /* نظام الصفحات */
+        .page { display: none; animation: fadeIn 0.4s ease-out; }
         .active { display: block; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        h1 { color: var(--gold); text-align: center; font-size: 32px; margin-bottom: 5px; }
-        .subtitle { text-align: center; color: #888; margin-bottom: 25px; font-size: 13px; }
+        h1 { color: var(--gold); text-align: center; font-size: 35px; margin-bottom: 5px; text-shadow: 0 0 10px rgba(255,215,0,0.2); }
+        .subtitle { text-align: center; color: #777; margin-bottom: 25px; font-size: 14px; }
 
         .card {
             background: var(--card);
             border: 1px solid #222;
-            border-radius: 25px;
-            padding: 25px;
+            border-radius: 20px;
+            padding: 20px;
             margin-bottom: 15px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
 
         .btn {
@@ -50,23 +51,41 @@
             gap: 10px;
             width: 100%;
             padding: 15px;
-            margin-top: 12px;
-            border-radius: 15px;
+            margin-top: 10px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 15px;
+            font-size: 16px;
             border: none;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
             box-sizing: border-box;
         }
 
         .btn-gold { background: var(--gold); color: #000; }
         .btn-white { background: #fff; color: #000; }
-        .btn-back { background: transparent; color: #888; border: 1px solid #333; margin-top: 20px; }
-        .btn-wa { background: var(--whatsapp); color: #fff; }
-        .btn-ig { background: var(--insta); color: #fff; }
+        .btn-back { background: transparent; color: #666; border: 1px solid #222; margin-top: 25px; }
 
+        /* صفحة الأسعار */
+        .price-tag {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            border-right: 4px solid var(--gold);
+        }
+
+        /* صفحة النصائح */
+        .tips-scroll { height: 320px; overflow-y: scroll; background: #000; padding: 15px; border-radius: 15px; border: 1px solid #222; text-align: right; }
+        .tip-box { padding: 10px 0; border-bottom: 1px solid #111; font-size: 14px; color: #ccc; }
+
+        /* شريط التحميل */
+        .progress-container { margin-top: 20px; }
+        .progress-bar { width: 100%; height: 8px; background: #222; border-radius: 10px; overflow: hidden; margin-top: 10px; }
+        .progress-fill { width: 0%; height: 100%; background: var(--gold); transition: 0.3s; }
+        
         .main-input {
             width: 100%;
             padding: 14px;
@@ -79,141 +98,128 @@
             outline: none;
             text-align: center;
         }
-
-        /* صفحة النصائح */
-        .tips-list { text-align: right; height: 300px; overflow-y: auto; padding: 15px; background: #000; border-radius: 15px; border: 1px solid #222; }
-        .tip-item { border-bottom: 1px solid #1a1a1a; padding: 12px 0; font-size: 14px; color: #ddd; }
-        .tip-num { color: var(--gold); font-weight: bold; margin-left: 8px; }
-
-        /* صفحة المبيعات */
-        .price-box {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #1a1a1a;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            border: 1px solid #333;
-        }
-        .price-val { color: var(--gold); font-weight: bold; font-size: 18px; }
-
-        /* لودينغ */
-        #loading-area { margin-top: 20px; }
-        .progress-bg { width: 100%; background: #222; height: 10px; border-radius: 5px; overflow: hidden; margin-top: 10px; }
-        #progress-bar { width: 0%; background: var(--gold); height: 100%; transition: 0.4s; }
     </style>
 </head>
 <body>
 
 <div class="container">
 
-    <div id="page1" class="page active">
+    <div id="p1" class="page active">
         <h1>✨ Golden Tips</h1>
-        <p class="subtitle">اختر الخدمة التي تناسبك لتطوير حسابك</p>
+        <p class="subtitle">خدمات احترافية لتكبير حسابات Instagram</p>
         
         <div class="card">
-            <h3>🎁 متابعين بالمجان</h3>
-            <p>99 نصيحة ذهبية لتطوير محتواك وجذب المتابعين.</p>
-            <button class="btn btn-gold" onclick="showPage('page2')">دخول للنصائح 📈</button>
+            <h3 style="margin:0 0 10px 0;">🎁 متابعين بالمجان</h3>
+            <p style="font-size:13px;">99 نصيحة ذهبية لتطوير محتواك.</p>
+            <button class="btn btn-gold" onclick="nav('p2')">عرض النصائح 📈</button>
         </div>
 
         <div class="card">
-            <h3>⚡ زيادة سريعة (Boost)</h3>
-            <p>أرسل طلب زيادة المتابعين لحسابك الآن.</p>
-            <button class="btn btn-white" onclick="showPage('page4')">بدء العملية ⚡</button>
+            <h3 style="margin:0 0 10px 0;">⚡ زيادة سريعة (Boost)</h3>
+            <p style="font-size:13px;">ابدأ عملية إرسال المتابعين الآن.</p>
+            <button class="btn btn-white" onclick="nav('p4')">بدء العملية ⚡</button>
         </div>
 
         <div class="card">
-            <h3>💰 قائمة الأسعار</h3>
-            <p>لشراء متابعين حقيقيين بضمان دائم.</p>
-            <button class="btn btn-gold" style="background:#444; color:white;" onclick="showPage('page3')">عرض الأسعار 💸</button>
+            <h3 style="margin:0 0 10px 0;">💰 عروض المتابعين</h3>
+            <p style="font-size:13px;">متابعين حقيقيين بأرخص الأثمان.</p>
+            <button class="btn btn-gold" style="opacity:0.8;" onclick="nav('p3')">قائمة الأسعار 💸</button>
         </div>
     </div>
 
-    <div id="page2" class="page">
-        <h1>📈 99 Golden Tips</h1>
-        <p class="subtitle">تعلم أسرار النمو الحقيقي</p>
-        <div class="tips-list" id="tipsContainer"></div>
-        <a href="https://www.instagram.com/omvvvar____x7?igsh=MThsczB4bHVrYzVzZw==" class="btn btn-ig" target="_blank">تابعني للمزيد 📸</a>
-        <button class="btn btn-back" onclick="showPage('page1')">العودة ⬅️</button>
+    <div id="p2" class="page">
+        <h2 style="color:var(--gold); text-align:center;">📈 99 نصيحة ذهبية</h2>
+        <div class="tips-scroll" id="tips"></div>
+        <a href="https://www.instagram.com/omvvvar____x7?igsh=MThsczB4bHVrYzVzZw==" class="btn" style="background:var(--insta); color:#fff; margin-top:15px;">Instagram للمزيد 📸</a>
+        <button class="btn btn-back" onclick="nav('p1')">العودة للرئيسية ⬅️</button>
     </div>
 
-    <div id="page3" class="page">
-        <h1>💰 الأسعار</h1>
-        <p class="subtitle">متابعين حقيقيين بأرخص الأثمان</p>
+    <div id="p3" class="page">
+        <h2 style="color:var(--gold); text-align:center;">💰 قائمة الأسعار</h2>
         <div class="card">
-            <div class="price-box"><span>1000 متابع</span><span class="price-val">1.5$</span></div>
-            <div class="price-box"><span>2000 متابع</span><span class="price-val">3$</span></div>
-            <div class="price-box"><span>4000 متابع</span><span class="price-val">5$</span></div>
+            <div class="price-tag"><span>1,000 متابع</span><span style="color:var(--gold);">1.5$</span></div>
+            <div class="price-tag"><span>2,000 متابع</span><span style="color:var(--gold);">3$</span></div>
+            <div class="price-tag"><span>4,000 متابع</span><span style="color:var(--gold);">5$</span></div>
+            
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:20px;">
-                <a href="https://wa.me/212649595538" class="btn btn-wa" target="_blank">WhatsApp</a>
-                <a href="https://www.instagram.com/omvvvar____x7?igsh=MThsczB4bHVrYzVzZw==" class="btn btn-ig" target="_blank">Instagram</a>
+                <a href="https://wa.me/212649595538" class="btn" style="background:var(--whatsapp); color:#fff;">WhatsApp 💬</a>
+                <a href="https://www.instagram.com/omvvvar____x7?igsh=MThsczB4bHVrYzVzZw==" class="btn" style="background:var(--insta); color:#fff;">Instagram 📸</a>
             </div>
         </div>
-        <button class="btn btn-back" onclick="showPage('page1')">العودة ⬅️</button>
+        <button class="btn btn-back" onclick="nav('p1')">العودة للرئيسية ⬅️</button>
     </div>
 
-    <div id="page4" class="page">
-        <h1>🚀 Fast Boost</h1>
-        <p class="subtitle">نظام زيادة المتابعين التلقائي</p>
+    <div id="p4" class="page">
+        <h2 style="color:var(--gold); text-align:center;">⚡ نظام Boost</h2>
         <div class="card">
-            <input type="text" id="target_user" class="main-input" placeholder="@instagram_user">
-            <select id="amount" class="main-input">
-                <option value="1000">1,000 Followers</option>
-                <option value="5000">5,000 Followers</option>
-                <option value="10000">10,000 Followers</option>
+            <input type="text" id="user" class="main-input" placeholder="@username">
+            <select id="sel" class="main-input" style="background:#000;">
+                <option>1,000 Followers</option>
+                <option>5,000 Followers</option>
+                <option>10,000 Followers</option>
             </select>
-            <button class="btn btn-gold" onclick="startBoost()">Start Process ⚡</button>
-            <div id="loading-area" style="display:none;">
-                <p id="status-text" style="font-size:12px; color:var(--gold);">Connecting...</p>
-                <div class="progress-bg"><div id="progress-bar"></div></div>
+            <button class="btn btn-gold" onclick="runBoost()">إرسال الطلب الآن 🚀</button>
+            
+            <div id="load" style="display:none;" class="progress-container">
+                <p id="status" style="font-size:12px; color:var(--gold);">Connecting to Instagram Servers...</p>
+                <div class="progress-bar"><div class="progress-fill" id="fill"></div></div>
             </div>
         </div>
-        <button class="btn btn-back" onclick="showPage('page1')">العودة ⬅️</button>
+        <button class="btn btn-back" onclick="nav('p1')">العودة للرئيسية ⬅️</button>
     </div>
 
 </div>
 
 <script>
-    function showPage(pageId) {
+    // نظام التنقل
+    function nav(id) {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        document.getElementById(pageId).classList.add('active');
+        document.getElementById(id).classList.add('active');
         window.scrollTo(0,0);
     }
 
-    // توليد النصائح
-    const container = document.getElementById('tipsContainer');
-    const tips = ["اهتم بالهوك الأول.","صور بجودة 4K.","تفاعل مع الكومنتات.","استعمل هاشتاغات SEO.","انشر يومياً ستوري.","رد على الرسائل.","استعمل ريلز تريند.","حدد نيتش واحد.","اجعل البروفايل مرتب."];
+    // توليد 99 نصيحة تلقائياً
+    const tContainer = document.getElementById('tips');
+    const baseTips = [
+        "اهتم بأول 3 ثواني (The Hook).",
+        "صور بجودة 4K وإضاءة جيدة.",
+        "استعمل Trending Audio بصوت خفيف.",
+        "تفاعل مع كل الكومنتات بسرعة.",
+        "استعمل هاشتاغات SEO في الوصف.",
+        "انشر يومياً 3 إلى 5 ستوريات.",
+        "رد على الرسائل الخاصة (DMs).",
+        "اجعل بروفايلك مرتباً وواضحاً.",
+        "استعمل الـ Reels باستمرار للانتشار."
+    ];
     for (let i = 1; i <= 99; i++) {
-        const div = document.createElement('div');
-        div.className = 'tip-item';
-        div.innerHTML = `<span class="tip-num">${i}.</span> ${tips[i % tips.length]}`;
-        container.appendChild(div);
+        tContainer.innerHTML += `<div class="tip-box"><span style="color:var(--gold); font-weight:bold;">${i}.</span> ${baseTips[i % baseTips.length]}</div>`;
     }
 
-    // عملية الزيادة
-    function startBoost() {
-        const user = document.getElementById('target_user').value;
-        if(!user) { alert("أدخل اسم الحساب!"); return; }
-        document.getElementById('loading-area').style.display = 'block';
-        let prog = 0;
-        const bar = document.getElementById('progress-bar');
-        const st = document.getElementById('status-text');
-        const itv = setInterval(() => {
-            prog += Math.floor(Math.random() * 8) + 2;
-            if(prog >= 100) {
-                prog = 100; clearInterval(itv);
-                st.innerText = "✅ اكتمل! تواصل لتأكيد الإرسال.";
-                setTimeout(() => {
-                    window.location.href = `https://wa.me/212649595538?text=أنهيت%20عملية%20الزيادة%20لحساب%20@${user}`;
+    // نظام الزيادة (Boost)
+    function runBoost() {
+        const u = document.getElementById('user').value;
+        if(!u) return alert("المرجو إدخال اسم الحساب!");
+        
+        document.getElementById('load').style.display = 'block';
+        let w = 0;
+        const f = document.getElementById('fill');
+        const s = document.getElementById('status');
+        
+        const t = setInterval(() => {
+            w += Math.random() * 8;
+            if(w >= 100) {
+                w = 100; clearInterval(t);
+                s.innerText = "✅ اكتملت العملية! تواصل معنا لتأكيد الطلب.";
+                s.style.color = "#25D366";
+                setTimeout(() => { 
+                    window.location.href = `https://wa.me/212649595538?text=أنهيت%20عملية%20الزيادة%20لحساب%20@${u}`; 
                 }, 1500);
             }
-            bar.style.width = prog + "%";
-            if(prog > 20) st.innerText = "Connecting to Servers...";
-            if(prog > 50) st.innerText = `Sending Followers to @${user}...`;
-            if(prog > 80) st.innerText = "Finalizing... 🚀";
-        }, 300);
+            f.style.width = w + "%";
+            if(w > 25) s.innerText = "Connecting to Servers...";
+            if(w > 60) s.innerText = `Adding Followers to @${u}...`;
+            if(w > 85) s.innerText = "Finalizing Database... 🚀";
+        }, 350);
     }
 </script>
 </body>
